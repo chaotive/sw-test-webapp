@@ -10,60 +10,60 @@
  */
 export interface Planet {
   /**
+   * The number of standard hours it takes for this planet to complete a single rotation on its axis.
+   */
+  rotation_period: string;
+  /**
    * The percentage of the planet surface that is naturally occuring water or bodies of water.
    */
   surface_water: string;
-  /**
-   * The number of standard days it takes for this planet to complete a single orbit of its local star.
-   */
-  orbital_period: string;
-  /**
-   * An array of People URL Resources that live on this planet.
-   */
-  residents: any[];
-  /**
-   * The ISO 8601 date format of the time that this resource was created.
-   */
-  created: string;
-  /**
-   * the ISO 8601 date format of the time that this resource was edited.
-   */
-  edited: string;
-  /**
-   * the terrain of this planet. Comma-seperated if diverse.
-   */
-  terrain: string;
-  /**
-   * The hypermedia URL of this resource.
-   */
-  url: string;
-  /**
-   * An array of Film URL Resources that this planet has appeared in.
-   */
-  films: any[];
   /**
    * A number denoting the gravity of this planet. Where 1 is normal.
    */
   gravity: string;
   /**
+   * An array of Film URL Resources that this planet has appeared in.
+   */
+  films: any[];
+  /**
    * The diameter of this planet in kilometers.
    */
   diameter: string;
   /**
-   * The number of standard hours it takes for this planet to complete a single rotation on its axis.
+   * the terrain of this planet. Comma-seperated if diverse.
    */
-  rotation_period: string;
+  terrain: string;
   /**
-   * The average populationof sentient beings inhabiting this planet.
+   * The ISO 8601 date format of the time that this resource was created.
    */
-  population: string;
+  created: string;
+  /**
+   * The climate of this planet. Comma-seperated if diverse.
+   */
+  climate: string;
+  /**
+   * The hypermedia URL of this resource.
+   */
+  url: string;
+  /**
+   * The number of standard days it takes for this planet to complete a single orbit of its local star.
+   */
+  orbital_period: string;
+  /**
+   * the ISO 8601 date format of the time that this resource was edited.
+   */
+  edited: string;
   /**
    * The name of this planet.
    */
   name: string;
   /**
-   * The climate of this planet. Comma-seperated if diverse.
+   * The average populationof sentient beings inhabiting this planet.
    */
-  climate: string;
+  population: string;
+  /**
+   * An array of People URL Resources that live on this planet.
+   */
+  residents: any[];
   [k: string]: any;
 }
