@@ -1,7 +1,11 @@
 {
     "defaultSeverity": "error",
     "extends": [ "tslint:recommended", "tslint:latest", "tslint-react" ],
-    "jsRules": {},
+    "jsRules": {
+      "semicolon": [ true, "never"],
+      "quotemark": [true, "single", "jsx-double"],
+      "trailing-comma": [true, {"singleline": "never"}]
+    },
     "rules": {
       "semicolon": [ true, "never"],
       "quotemark": [true, "single", "jsx-double"],
