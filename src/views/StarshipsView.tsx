@@ -1,12 +1,10 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
 import {Starship} from '../../typings/swapi/starships'
-import {loadingFragment} from '../components/fragments'
+import {loadingFragment, pagingButtonsFragment, headerFragment} from '../components/fragments'
 import {retrieveStarships} from '../requests/swapi'
 import StarshipCapsule from '../components/StarshipCapsule'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
+import {IPaginable} from '../../typings/traits'
 
 interface IStarshipsViewState {
   loaded?: boolean
@@ -26,36 +24,26 @@ function updateData(c: StarshipsView, page?: string) {
     }))
 }
 
-const renderHeader = () => <Row>
-  <Col>Ships page X</Col>
-</Row>
-
-const renderFooter = (c: StarshipsView) => <Row>
-  <Col><Button onClick={c.goBack.bind(c)}>Back</Button></Col>
-  <Col><Button className="float-right" onClick={c.goForward.bind(c)}>Forward</Button></Col>
-</Row>
-
 const renderStarships = (c: StarshipsView) => c.state.starships.map((s, i)=> <StarshipCapsule key={i} {...s}/>)
+const goBack = (c: StarshipsView) => updateData(c, c.state.previousPage)
+const goForward = (c: StarshipsView) => updateData(c, c.state.nextPage)
 
-export default class StarshipsView extends React.Component<{}, IStarshipsViewState> {
+export default class StarshipsView extends React.Component<{}, IStarshipsViewState> implements IPaginable {
   constructor(props: {}) {
     super(props)
-    this.state = {
-      starships: []
-    }
+    this.state = { starships: [] }
   }
 
-  public goBack = () => updateData(this, this.state.previousPage)
-  public goForward = () => updateData(this, this.state.nextPage)
-
+  public goBack = () => goBack(this)
+  public goForward = () => goForward(this)
   public componentWillMount = () => updateData(this)
 
   public render() {
     console.log('render', this)
     return <Container>
-      {renderHeader()}
+      {headerFragment}
       {this.state.loaded ? renderStarships(this) : loadingFragment}
-      {renderFooter(this)}
+      {pagingButtonsFragment(this)}
     </Container>
   }
 }
