@@ -4,7 +4,8 @@
     "jsRules": {
       "semicolon": [ true, "never"],
       "quotemark": [true, "single", "jsx-double"],
-      "trailing-comma": [true, {"singleline": "never"}]
+      "trailing-comma": [true, {"singleline": "never"}],
+      "indent": [true, "spaces", 2]
     },
     "rules": {
       "semicolon": [ true, "never"],
