@@ -34,12 +34,10 @@ const StarshipCapsule: React.FC = () => <Row>
   <Col>2 of 2</Col>
 </Row>
 
-const retrieveStarships = async (cb: (data: ISwApiResource<Starship>) => void, page?: string) => {
+const retrieveStarships = async (page?: string): Promise<ISwApiResource<Starship>> => {
   const response = await fetch(page ? page : 'https://swapi.co/api/starships/')
-  console.log(response)
-  const resource: ISwApiResource<Starship> = await response.json()
-  console.log(resource)
-  cb(resource)
+  console.debug(response)
+  return response.json()
 }
 
 interface IStarshipsViewState {
@@ -60,13 +58,20 @@ class StarshipsView extends React.Component<{}, IStarshipsViewState> {
     }
   }
 
+  private updateData(page?: string) {
+    this.setState({loaded: false})
+    retrieveStarships(page)
+      .then(data => this.setState({
+        starships: data.results,
+        nextPage: data.next,
+        previousPage: data.previous,
+        loaded: true
+      })
+    )
+  }
+
   public componentWillMount() {
-    retrieveStarships(data => this.setState({
-      starships: data.results,
-      nextPage: data.next,
-      previousPage: data.previous,
-      loaded: true
-    }))
+    this.updateData()
   }
 
   public render() {

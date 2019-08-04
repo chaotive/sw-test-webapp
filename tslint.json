@@ -15,7 +15,8 @@
       "trailing-comma": [true, {"singleline": "never"}],
       "arrow-parens": false,
       "object-literal-sort-keys": false,
-      "whitespace": true
+      "whitespace": true,
+      "member-ordering": false
     },
     "rulesDirectory": []
 }
