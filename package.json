@@ -22,22 +22,7 @@
     "generateTypes": "node scripts/generateTypes.js"
   },
   "eslintConfig": {
-    "extends": "react-app",
-    "rules": {
-      "quotes": [
-        "error",
-        "single"
-      ],
-      "semi": [
-        "error",
-        "never"
-      ],
-      "indent": [
-        "error",
-        2
-      ],
-      "keyword-spacing": "error"
-    }
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [

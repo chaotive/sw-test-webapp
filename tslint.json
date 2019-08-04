@@ -3,13 +3,19 @@
     "extends": [ "tslint:recommended", "tslint:latest", "tslint-react" ],
     "jsRules": {},
     "rules": {
-        "semicolon": [ true, "never"],
-        "quotemark": [true, "single", "jsx-double"],
-        "no-irregular-whitespace": true,
-        "no-trailing-whitespace": true,
-        "ordered-imports": false,
-        "jsx-wrap-multiline": false,
-        "no-submodule-imports": false
+      "semicolon": [ true, "never"],
+      "quotemark": [true, "single", "jsx-double"],
+      "no-irregular-whitespace": true,
+      "no-trailing-whitespace": true,
+      "ordered-imports": false,
+      "jsx-wrap-multiline": false,
+      "no-submodule-imports": false,
+      "indent": [true, "spaces", 2],
+      "no-console": false,
+      "trailing-comma": [true, {"singleline": "never"}],
+      "arrow-parens": false,
+      "object-literal-sort-keys": false,
+      "whitespace": true
     },
     "rulesDirectory": []
 }
