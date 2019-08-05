@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <h1
+      className="col"
+    >
+      STAR WARS Starships page 1
+    </h1>
+  </div>
+  <div
+    className="m-4 row"
+  >
+    <div
+      className="col"
+    >
+      <button
+        className="btn btn-primary"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        Back
+      </button>
+    </div>
+    <div
+      className="col"
+    >
+      <button
+        className="float-right btn btn-primary"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        Forward
+      </button>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="text-center m-4 col"
+    >
+      <div
+        className="spinner-border"
+        role="status"
+      >
+        <span
+          className="sr-only"
+        >
+          Loading...
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
