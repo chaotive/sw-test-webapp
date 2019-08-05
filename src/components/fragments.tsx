@@ -6,11 +6,11 @@ import {IPaginable} from '../../typings/traits'
 
 export const loadingFragment = <Row><Col>Loading...</Col></Row>
 
-export const headerFragment = <Row>
-  <Col>Ships page X</Col>
+export const titleFragment = (text: string) => <Row>
+  <Col as="h1">{text}</Col>
 </Row>
 
 export const pagingButtonsFragment: React.FC<IPaginable> = props => <Row>
-  <Col><Button onClick={props.goBack}>Back</Button></Col>
-  <Col><Button className="float-right" onClick={props.goForward}>Forward</Button></Col>
+  <Col><Button disabled={!props.state.previousPage} onClick={props.goBack}>Back</Button></Col>
+  <Col><Button disabled={!props.state.nextPage} className="float-right" onClick={props.goForward}>Forward</Button></Col>
 </Row>

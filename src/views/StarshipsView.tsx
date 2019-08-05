@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
 import {Starship} from '../../typings/swapi/starships'
-import {loadingFragment, pagingButtonsFragment, headerFragment} from '../components/fragments'
+import {loadingFragment, pagingButtonsFragment, titleFragment} from '../components/fragments'
 import {retrieveStarships} from '../requests/swapi'
 import StarshipCapsule from '../components/StarshipCapsule'
 import {IPaginable} from '../../typings/traits'
@@ -11,37 +11,46 @@ interface IStarshipsViewState {
   nextPage?: string
   previousPage?: string
   starships: Starship[]
+  pageNumber: number
 }
 
-function updateData(c: StarshipsView, page?: string) {
-  c.setState({loaded: false})
-  retrieveStarships(page)
-    .then(data => c.setState({
+function updateState(c: StarshipsView, page?: string, pageDiff: number = 0) {
+  c.setState({
+    nextPage: undefined,
+    previousPage: undefined,
+    loaded: false,
+    pageNumber: c.state.pageNumber + pageDiff
+  })
+  retrieveStarships(page).then(data =>
+    c.setState({
       starships: data.results,
       nextPage: data.next,
       previousPage: data.previous,
       loaded: true
-    }))
+    })
+  )
 }
 
 const renderStarships = (c: StarshipsView) => c.state.starships.map((s, i)=> <StarshipCapsule key={i} {...s}/>)
-const goBack = (c: StarshipsView) => updateData(c, c.state.previousPage)
-const goForward = (c: StarshipsView) => updateData(c, c.state.nextPage)
+const goBack = (c: StarshipsView) => updateState(c, c.state.previousPage, -1)
+const goForward = (c: StarshipsView) => updateState(c,  c.state.nextPage, 1)
 
 export default class StarshipsView extends React.Component<{}, IStarshipsViewState> implements IPaginable {
   constructor(props: {}) {
     super(props)
-    this.state = { starships: [] }
+    this.state = {
+      pageNumber: 1,
+      starships: []
+    }
   }
 
   public goBack = () => goBack(this)
   public goForward = () => goForward(this)
-  public componentWillMount = () => updateData(this)
+  public componentWillMount = () => updateState(this)
 
   public render() {
-    console.log('render', this)
     return <Container>
-      {headerFragment}
+      {titleFragment('Starships page ' + this.state.pageNumber)}
       {this.state.loaded ? renderStarships(this) : loadingFragment}
       {pagingButtonsFragment(this)}
     </Container>
