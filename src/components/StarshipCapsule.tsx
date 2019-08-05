@@ -2,7 +2,14 @@ import React from 'react'
 import {Starship} from '../../typings/swapi/starships'
 import Card from 'react-bootstrap/Card'
 
-const StarshipCapsule: React.FC<Starship> = props => {
+export interface IStarshipCapsule extends Partial<Starship> {
+    name: string
+    crew: string
+    passengers: string
+    hyperdrive_rating: string
+}
+
+const StarshipCapsule: React.FC<IStarshipCapsule> = props => {
   const {name, crew, passengers, hyperdrive_rating} = props
   return <Card className="m-4">
     <Card.Body><strong>Name: {name}</strong></Card.Body>
