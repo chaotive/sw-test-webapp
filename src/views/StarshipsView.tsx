@@ -50,10 +50,12 @@ export default class StarshipsView extends React.Component<{}, IStarshipsViewSta
   public componentWillMount = () => updateState(this)
 
   public render() {
+    const pagingButtons = <PagingButtons {...this} />
     return <Container>
       {titleFragment('Starships page ' + this.state.pageNumber)}
+      {pagingButtons}
       {this.state.loaded ? renderStarships(this) : loadingFragment}
-      <PagingButtons {...this} />
+      {pagingButtons}
     </Container>
   }
 }
