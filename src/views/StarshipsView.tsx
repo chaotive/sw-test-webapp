@@ -1,10 +1,11 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
 import {Starship} from '../../typings/swapi/starships'
-import {loadingFragment, pagingButtonsFragment, titleFragment} from '../components/fragments'
+import {loadingFragment, titleFragment} from '../components/fragments'
 import {retrieveStarships} from '../requests/swapi'
 import StarshipCapsule from '../components/StarshipCapsule'
 import {IPaginable} from '../../typings/traits'
+import PagingButtons from '../components/PagingButtons'
 
 interface IStarshipsViewState {
   loaded?: boolean
@@ -52,7 +53,7 @@ export default class StarshipsView extends React.Component<{}, IStarshipsViewSta
     return <Container>
       {titleFragment('Starships page ' + this.state.pageNumber)}
       {this.state.loaded ? renderStarships(this) : loadingFragment}
-      {pagingButtonsFragment(this)}
+      <PagingButtons {...this} />
     </Container>
   }
 }
