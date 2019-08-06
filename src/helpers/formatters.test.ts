@@ -25,10 +25,13 @@ describe('zeroAsNone', () => {
 
 describe('scaleToPercentaje', () => {
   it('calculates regular cases', () => {
-    expect(scaleToPercentaje('3', 0, 5)).toBe(0.6)
+    expect(scaleToPercentaje('3', 0, 5)).toBe(60)
+  })
+  it('produces only integer values', () => {
+    expect(scaleToPercentaje('10', 0, 3)).toBe(333)
   })
   it('calculates edge cases', () => {
     expect(scaleToPercentaje('0', 0, 5)).toBe(0)
-    expect(scaleToPercentaje('5', 0, 5)).toBe(1)
+    expect(scaleToPercentaje('5', 0, 5)).toBe(100)
   })
 })

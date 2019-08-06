@@ -4,4 +4,4 @@ export const firstCapitalLetter =
 export const zeroAsNone = (value: string): string => value === '0' ? 'None' : value
 
 export const scaleToPercentaje =
-  (rawValue: string, min: number, max: number): number => parseFloat(rawValue) / (max - min)
+  (rawValue: string, min: number, max: number): number => Math.trunc(parseFloat(rawValue) / (max - min) * 100)

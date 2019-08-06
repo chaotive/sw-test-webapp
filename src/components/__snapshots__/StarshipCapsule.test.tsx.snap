@@ -28,7 +28,7 @@ exports[`renders correctly 1`] = `
     className="card-body"
   >
     Hyperdrive Class: 
-    0.02
+    2
   </div>
 </div>
 `;
