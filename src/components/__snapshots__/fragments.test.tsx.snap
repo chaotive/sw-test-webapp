@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`loadingFragment renders correctly 1`] = `
 <div
   className="row"
 >
@@ -18,5 +18,29 @@ exports[`renders correctly 1`] = `
       </span>
     </div>
   </div>
+</div>
+`;
+
+exports[`titleFragment renders correctly edge case 1`] = `
+<div
+  className="row"
+>
+  <h1
+    className="col"
+  >
+    
+  </h1>
+</div>
+`;
+
+exports[`titleFragment renders correctly regular case 1`] = `
+<div
+  className="row"
+>
+  <h1
+    className="col"
+  >
+    someTitle
+  </h1>
 </div>
 `;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`renders correctly for empty state property in props 1`] = `
 <div
   className="m-4 row"
 >
@@ -22,6 +22,37 @@ exports[`renders correctly 1`] = `
     <button
       className="float-right btn btn-primary"
       disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Forward
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders correctly for existing state property in props 1`] = `
+<div
+  className="m-4 row"
+>
+  <div
+    className="col"
+  >
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Back
+    </button>
+  </div>
+  <div
+    className="col"
+  >
+    <button
+      className="float-right btn btn-primary"
+      disabled={false}
       onClick={[Function]}
       type="button"
     >
