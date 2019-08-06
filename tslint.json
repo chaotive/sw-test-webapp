@@ -4,8 +4,7 @@
     "jsRules": {
       "semicolon": [ true, "never"],
       "quotemark": [true, "single", "jsx-double"],
-      "trailing-comma": [true, {"singleline": "never"}],
-      "indent": [true, "spaces", 2]
+      "trailing-comma": [true, {"singleline": "never"}]
     },
     "rules": {
       "semicolon": [ true, "never"],
@@ -15,7 +14,6 @@
       "ordered-imports": false,
       "jsx-wrap-multiline": false,
       "no-submodule-imports": false,
-      "indent": [true, "spaces", 2],
       "no-console": false,
       "trailing-comma": [true, {"singleline": "never"}],
       "arrow-parens": false,
