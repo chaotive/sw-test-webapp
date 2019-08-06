@@ -10,13 +10,15 @@ export interface IStarshipCapsule extends Partial<Starship> {
     hyperdrive_rating: string
 }
 
+const hrFormat = (value: string) => value === 'unknown' ? 0 : scaleToPercentaje(value, 0, 5)
+
 const StarshipCapsule: React.FC<IStarshipCapsule> = props => {
   const {name, crew, passengers, hyperdrive_rating} = props
   return <Card className="m-4">
     <Card.Body><strong>Name: {firstCapitalLetter(name)}</strong></Card.Body>
     <Card.Body>Crew: {zeroOrNone(crew)}</Card.Body>
     <Card.Body>Passengers: {zeroOrNone(passengers)}</Card.Body>
-    <Card.Body>Hyperdrive Class: {scaleToPercentaje(hyperdrive_rating, 0, 5)}</Card.Body>
+    <Card.Body>Hyperdrive Class: {hrFormat(hyperdrive_rating)}</Card.Body>
   </Card>
 }
 
