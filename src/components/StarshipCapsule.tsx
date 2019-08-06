@@ -23,7 +23,7 @@ const StarshipCapsule: React.FC<IStarshipCapsule> = props => {
     <div>Passengers: {zeroAsNone(passengers)}</div>
     <Row>
       <Col md="auto">Hyperdrive Class:</Col>
-      <Col className="align-self-center"><ProgressBar animated now={hrFormat(hyperdrive_rating)} /></Col>
+      <Col className="align-self-center"><ProgressBar variant="info" now={hrFormat(hyperdrive_rating)} /></Col>
     </Row>
   </Card.Body></Card>
 }

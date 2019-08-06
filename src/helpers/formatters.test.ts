@@ -6,8 +6,11 @@ describe('firstCapitalLetter', () => {
     expect(firstCapitalLetter('B')).toBe('B')
     expect(firstCapitalLetter('cC')).toBe('CC')
     expect(firstCapitalLetter('DD')).toBe('DD')
+    expect(firstCapitalLetter('Ee')).toBe('Ee')
+    expect(firstCapitalLetter('ff')).toBe('Ff')
   })
   it('passes trough non-letter characters', () => {
+    expect(firstCapitalLetter('')).toBe('')
     expect(firstCapitalLetter('0')).toBe('0')
     expect(firstCapitalLetter('.a')).toBe('.a')
   })
