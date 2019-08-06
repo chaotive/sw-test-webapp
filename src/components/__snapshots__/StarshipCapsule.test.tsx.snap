@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="m-4 card"
+>
+  <div
+    className="card-body"
+  >
+    <strong>
+      Name: 
+      TestShip
+    </strong>
+  </div>
+  <div
+    className="card-body"
+  >
+    Crew: 
+    5
+  </div>
+  <div
+    className="card-body"
+  >
+    Passengers: 
+    some
+  </div>
+  <div
+    className="card-body"
+  >
+    Hyperdrive Class: 
+    0.02
+  </div>
+</div>
+`;
