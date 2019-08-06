@@ -10,7 +10,7 @@ exports[`renders correctly 1`] = `
     <h1
       className="col"
     >
-      STAR WARS Starships page 1
+      STAR WARS Starships - Page 1
     </h1>
   </div>
   <div
