@@ -1,7 +1,7 @@
 import React from 'react'
 import {Starship} from '../../typings/swapi/starships'
 import Card from 'react-bootstrap/Card'
-import {firstCapitalLetter, scaleToPercentaje, zeroOrNone} from '../helpers/formatters'
+import {firstCapitalLetter, scaleToPercentaje, zeroAsNone} from '../helpers/formatters'
 
 export interface IStarshipCapsule extends Partial<Starship> {
     name: string
@@ -16,8 +16,8 @@ const StarshipCapsule: React.FC<IStarshipCapsule> = props => {
   const {name, crew, passengers, hyperdrive_rating} = props
   return <Card className="m-4">
     <Card.Body><strong>Name: {firstCapitalLetter(name)}</strong></Card.Body>
-    <Card.Body>Crew: {zeroOrNone(crew)}</Card.Body>
-    <Card.Body>Passengers: {zeroOrNone(passengers)}</Card.Body>
+    <Card.Body>Crew: {zeroAsNone(crew)}</Card.Body>
+    <Card.Body>Passengers: {zeroAsNone(passengers)}</Card.Body>
     <Card.Body>Hyperdrive Class: {hrFormat(hyperdrive_rating)}</Card.Body>
   </Card>
 }

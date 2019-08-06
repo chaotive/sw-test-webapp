@@ -21,7 +21,8 @@
       "arrow-parens": false,
       "object-literal-sort-keys": false,
       "whitespace": true,
-      "member-ordering": false
+      "member-ordering": false,
+      "no-implicit-dependencies": [true, "dev"]
     },
     "rulesDirectory": []
 }
