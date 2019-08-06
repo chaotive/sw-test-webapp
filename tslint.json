@@ -22,7 +22,8 @@
       "object-literal-sort-keys": false,
       "whitespace": true,
       "member-ordering": false,
-      "no-implicit-dependencies": [true, "dev"]
+      "no-implicit-dependencies": [true, "dev"],
+      "jsx-boolean-value": false
     },
     "rulesDirectory": []
 }
