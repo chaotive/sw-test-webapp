@@ -11,6 +11,7 @@ body {
   background-color: black;
   color: yellow;
   overflow-y: scroll;
+  font-family: 'Blinker', sans-serif;
 }
 
 code {
