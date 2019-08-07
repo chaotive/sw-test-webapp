@@ -1,13 +1,13 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
-import {Starship} from '../../typings/swapi/starships'
 import {loadingFragment, titleFragment} from '../components/fragments'
-import {retrieveStarships} from '../requests/swapi'
 import StarshipCapsule from '../components/StarshipCapsule'
 import {IPaginable} from '../../typings/traits'
 import PagingButtons from '../components/PagingButtons'
+import {Starship} from '../../typings/swapi/starships'
+import {retrieveStarships} from '../requests/swapi'
 
-interface IStarshipsViewState {
+export interface IStarshipsViewState {
   loaded?: boolean
   nextPage?: string
   previousPage?: string
@@ -32,7 +32,7 @@ function updateState(c: StarshipsView, page?: string, pageDiff: number = 0) {
   )
 }
 
-const renderStarships = (c: StarshipsView) => c.state.starships.map((s, i)=> <StarshipCapsule key={i} {...s}/>)
+const renderStarships = (c: StarshipsView) => c.state.starships.map((s, i) => <StarshipCapsule key={i} {...s}/>)
 const goBack = (c: StarshipsView) => updateState(c, c.state.previousPage, -1)
 const goForward = (c: StarshipsView) => updateState(c,  c.state.nextPage, 1)
 
